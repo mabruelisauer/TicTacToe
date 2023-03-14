@@ -78,6 +78,10 @@ namespace TicTacToe
             }
         }
 
-        
+        internal Field GetField(Coordinate coordiante)
+        {
+            
+            return _table[coordiante.Y, coordiante.X];
+        }
     }
 }

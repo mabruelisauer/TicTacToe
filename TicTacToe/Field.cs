@@ -22,14 +22,37 @@ namespace TicTacToe
 
         public int Index { get; }
 
+        public bool OwnedByPlayer1 { get; private set; }
+        public bool OwnedByPlayer2 { get; private set; }
+
         public Field(int index)
         {
             Index = index;
         }
 
         public Representation GetRepresentation()
+        {   
+            if (OwnedByPlayer1)
+            {
+                return "X";
+            }
+            if (OwnedByPlayer2)
+            {
+                return "O";
+            }
+            else
+            {
+                return " ";
+            } 
+        }
+
+        public void Player1CaptureField(Field field)
         {
-            return " ";
+            field.OwnedByPlayer1 = true;
+        }
+        public void Player2CaptureField(Field field)
+        {
+            field.OwnedByPlayer2 = true;
         }
     }
 }
