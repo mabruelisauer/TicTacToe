@@ -1,37 +1,37 @@
 # Tic Tac Toe
 
-*Julia Hüttenmoser, Dean Eichmann, Manuel Brülisauer*  
+*Julia HÃ¼ttenmoser, Dean Eichmann, Manuel BrÃ¼lisauer*  
 
 ## Informationen
-Dies ist unser Vertiefungsprojekt für das Modul V320.  
+Dies ist unser Vertiefungsprojekt fÃ¼r das Modul V320.  
 Das Thema des Projektes ist Tic Tac Toe, das auf einem normalen 3x3 Feld gespielt wird,   
 wobei man gewinnt wenn man der erste mit 3 gleichen Zeichen auf der Horizonalen, Vertikalen oder Diagonalen ist.
 
 ### Links
-Hier sehen Sie die Links zu dem Projekt auf Github sowie für Azure DevOps.
+Hier sehen Sie die Links zu dem Projekt auf Github sowie fÃ¼r Azure DevOps.
 
 >[Github Repository](https://github.com/mabruelisauer/TicTacToe)  
 [Azure Scrum](https://dev.azure.com/JuliaHuettenmoser/tictactoe) (Nur mit Zugriff)
 
 ## Start und Planung
 Am Anfang des Projektes mussten wir zuerst Planen, wie wir das Projekt angehen sollen bzw.  
-wie wir Anfangen wollen, was wir in welchem Sprint machen, was überhaupt zu machen ist, etc.  
-Zum Glück gab uns die [Vorgabe des Projektes](./Zusatz/Projektauftrag_TicTacToe.pdf) bereits einen guten Einblick.
-### Durchführung
+wie wir Anfangen wollen, was wir in welchem Sprint machen, was Ã¼berhaupt zu machen ist, etc.  
+Zum GlÃ¼ck gab uns die [Vorgabe des Projektes](./Zusatz/Projektauftrag_TicTacToe.pdf) bereits einen guten Einblick.
+### DurchfÃ¼hrung
 Als erstes haben wir direkt ein Repository und das Azure DevOps Projekt erstellt.  
 Nachdessen konnten Dean und Julia direkt die **Product Vision** und die **User Stories** erstellen, die wir aus 
 den funktionalen Anforderungen der Beschreibung des Projektes genommen haben. 
 
-Währenddessen hat Manuel das **UseCase-Modell** erstellt:
+WÃ¤hrenddessen hat Manuel das **UseCase-Modell** erstellt:
 
 ![UseCase-Modell](./img/use_case_diagram.png)
 
 Dann hat Dean eine provisorische Priorisierung mit einem **Wert/Risiko Diagramm** kreeiert,
-während Julia versucht hat ein **Klassendiagramm** zu erstellen, jedoch sind wir zum Schluss,
-gekommen, dass wir lieber einmal mit dem Code anfangen und im Nachhinein das Diagramm für
-die Übersicht erstellen, da es uns so leichter wirkt. Es ist sehr schwierig ein Diagramm dazu
-zu erstellen, wenn man noch keine Ahnung hat, was für Klassen, Methoden und Properties
-man überhaupt braucht.  
+wÃ¤hrend Julia versucht hat ein **Klassendiagramm** zu erstellen, jedoch sind wir zum Schluss,
+gekommen, dass wir lieber einmal mit dem Code anfangen und im Nachhinein das Diagramm fÃ¼r
+die Ãœbersicht erstellen, da es uns so leichter wirkt. Es ist sehr schwierig ein Diagramm dazu
+zu erstellen, wenn man noch keine Ahnung hat, was fÃ¼r Klassen, Methoden und Properties
+man Ã¼berhaupt braucht.  
 Trotzdessen ist hier ihr Prototyp zum Klassendiagramm:
 
 ![Prototyp des Klassendiagramm](./img/prototyp_klassendiagramm.png)
@@ -40,3 +40,14 @@ Nachdem wir uns dazu entschlossen haben, haben wir uns gemeinsam um die Priorisi
 Dies war die schlussendliche Priorisierung die man auch auf Azure finden kann (1,2,3 anstatt ABC):
 
 ![Priorisierung](./img/Prioritising.png)
+
+## Sprint 1
+# Sprintziele
+- Organisation/ Planung
+- Grid
+
+# Sprintreview
+Bei diesem Sprint haben wir weniger Aufgaben gemacht, damit wir sicherstellen konnten, dass wir alles wÃ¤hrend der Schulzeit erledigen konnten.
+Ausserdem haben wir den Grid implementiert. Dieses Grid ist eine visualierung der eigenlich nicht sichtbaren Matrix.
+
+# Retroperspektive
