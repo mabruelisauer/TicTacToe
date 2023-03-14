@@ -42,12 +42,12 @@ Dies war die schlussendliche Priorisierung die man auch auf Azure finden kann (1
 ![Priorisierung](./img/Prioritising.png)
 
 ## Sprint 1
-# Sprintziele
+### Sprintziele
 - Organisation/ Planung
 - Grid
 
-# Sprintreview
+### Sprintreview
 Bei diesem Sprint haben wir weniger Aufgaben gemacht, damit wir sicherstellen konnten, dass wir alles während der Schulzeit erledigen konnten.
 Ausserdem haben wir den Grid implementiert. Dieses Grid ist eine visualierung der eigenlich nicht sichtbaren Matrix.
 
-# Retroperspektive
+### Retroperspektive
