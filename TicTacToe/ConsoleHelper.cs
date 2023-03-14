@@ -48,6 +48,11 @@ namespace TicTacToe
                 {
                     return null;
                 }
+                if (input == "neu")
+                {
+                    var game = new Game();
+                    game.Start();
+                }
                 (isValid, coordinate) = Coordinate.TryCreateCoordinate(input, gridSize);
             } while (!isValid);
             return coordinate;
