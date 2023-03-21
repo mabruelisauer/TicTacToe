@@ -112,3 +112,19 @@ public Representation GetRepresentation()
 
 ### Sprintreview
 Sehr zufrieden mit erfüllung von Backlogs. Die wichtigsten Funktionen wurden fertig gemacht. 
+Jetzt fehlt nur noch die WinCheck Funktion und das Spiel funktioniert. 
+
+Einige schwierigkeiten sind bei Koordinaten erschienen die ausserhalb des Grids waren, da sie von der
+GetCoordinates Funktion akzeptiert wurden und dann das Programm abgestürzt ist, was uns viel Zeit kostete.
+### Sprintretroperspektive
+Die benutzung des Pair-Programming hat sehr gut Funktioniert. Es ist schwierig zu zweit (oder mehr) am
+gleichen Projekt zusammen zu arbeiten, da es relativ klein ist viele Sachen aufeinander aufbauen, weshalb
+durch Pair-Programming beide an dem Code gleichzitig arbeiten konnten.  
+Ausserdem war es laut Teilnehmern produktiver als hätten sie alleine gearbeitet.  
+Leider war Dean krank, weshalb wir weniger Arbeitskraft hatten, jedoch konnten wir trotzdem alles machen,
+was wir machen wollten.
+
+Sprintbewertung:
+- Manuel: 7/10, wegen die Probleme mit den Koordinaten
+- Julia: 8/10, angenehme Arbeitslast und alles hat relativ gut funktioniert.
+- Dean: =/10, war krank, nicht sehr angenehm.
