@@ -50,8 +50,8 @@ namespace TicTacToe
                 }
                 if (input == "neu")
                 {
-                    var game = new Game();
-                    game.Start();
+                    Program.Game();
+                    return null;
                 }
                 (isValid, coordinate) = Coordinate.TryCreateCoordinate(input, gridSize);
             } while (!isValid);
