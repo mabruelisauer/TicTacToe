@@ -11,8 +11,6 @@
                 Console.Title = "TicTacToe";
                 var game = new Game();
                 game.Start();
-
-                Console.ReadLine();
         }
     }
 }

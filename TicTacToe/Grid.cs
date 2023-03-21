@@ -63,9 +63,9 @@ namespace TicTacToe
                     var representation = field.GetRepresentation();
                     representation.Print();
                     Console.Write(" | ");
-                    double waiting = ((3000 / _table.GetLength(0)) - 70) / _table.GetLength(0);
-                    int waitingTime = Convert.ToInt32(waiting);
-                    System.Threading.Thread.Sleep(waitingTime);
+                    //double waiting = ((3000 / _table.GetLength(0)) - 70) / _table.GetLength(0);
+                    //int waitingTime = Convert.ToInt32(waiting);
+                    //System.Threading.Thread.Sleep(waitingTime);
                 }
                 Console.WriteLine("");
                 Console.Write("     -");
@@ -74,10 +74,14 @@ namespace TicTacToe
                     Console.Write("----");
                 }
                 Console.WriteLine("");
-                System.Threading.Thread.Sleep(70);
+                //System.Threading.Thread.Sleep(70);
             }
         }
 
-        
+        internal Field GetField(Coordinate coordiante)
+        {
+            
+            return _table[coordiante.Y, coordiante.X];
+        }
     }
 }
