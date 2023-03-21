@@ -51,3 +51,64 @@ Bei diesem Sprint haben wir weniger Aufgaben gemacht, damit wir sicherstellen ko
 Ausserdem haben wir den Grid implementiert. Dieses Grid ist eine visualierung der eigenlich nicht sichtbaren Matrix.
 
 ### Retroperspektive
+
+## Sprint 2
+### Sprintziele
+- Spiel Neustarten
+- Spiel Beenden
+- Felder Besitz
+- Visuelle Darstellung
+### Sprint
+Dieser Sprint wurde hauptsächlich in Pair-Programming gemacht, ausserdem war Dean krank. 
+
+Zuerst wurde der Spieler switch zwischen Zügen implementiert. Dies wurde gemacht in dem man in der Game Klasse
+checkt ob am Ende eines Zuges, der 1. Spieler an der Reihe war oder nicht
+```
+if (_player.Player1Turn)
+                {
+                    _player.Player1Turn = false;
+                    _player.Player2Turn = true;
+                }
+                else
+                {
+                    _player.Player1Turn = true;
+                    _player.Player2Turn = false;
+                }
+```
+
+Als nächstes wurde implementiert, dass beiden Spielern verschiedene Felder gehören können.
+Im Code wird dies in der Field Klasse geregelt.
+```
+public void Player1CaptureField(Field field)
+{
+        field.OwnedByPlayer1 = true;
+}
+public void Player2CaptureField(Field field)
+{
+        field.OwnedByPlayer2 = true;
+}
+```
+Mit diesen zwei Methoden wird deklariert ob und wem ein Feld gehört.
+Danach wird mit der Methode getRepresentation geschaut wem dieses Feld gehört und je nach dem ein X, O oder 
+einen Abstand platziert.
+```
+public Representation GetRepresentation()
+        {   
+            if (OwnedByPlayer1)
+            {
+                return "X";
+            }
+            if (OwnedByPlayer2)
+            {
+                return "O";
+            }
+            else
+            {
+                return " ";
+            } 
+        }
+```
+
+
+### Sprintreview
+Sehr zufrieden mit erfüllung von Backlogs. Die wichtigsten Funktionen wurden fertig gemacht. 
