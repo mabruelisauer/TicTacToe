@@ -57,7 +57,7 @@ Ausserdem haben wir den Grid implementiert. Dieses Grid ist eine visualierung de
 Ziel dieses Sprints ist es, das die Spieler das Spiel beenden und neutstarte können, sie ihre Felder
 mit X oder O besetzen können, und man dies sehen kann.
 
-Also Kurz:§
+Also Kurz:
 - Spiel Neustarten
 - Spiel Beenden
 - Felder Besitz
