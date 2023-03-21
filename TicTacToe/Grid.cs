@@ -83,5 +83,20 @@ namespace TicTacToe
             
             return _table[coordiante.Y, coordiante.X];
         }
+
+        public string[,] GetRepresentationString()
+        {
+            string[,] representation = new string[3, 3];
+            for (int row = 0; row < 3; row++)
+            {
+                for (int col = 0; col < 3; col++)
+                {
+                    Field field = _table[row, col];
+                    var fieldRepresentation = field.GetStringRepresentation();
+                    representation[row, col] = fieldRepresentation;
+                }
+            }
+            return representation;
+        }
     }
 }

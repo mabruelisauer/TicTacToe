@@ -30,6 +30,22 @@ namespace TicTacToe
             Index = index;
         }
 
+        public string GetStringRepresentation()
+        {
+            if (OwnedByPlayer1)
+            {
+                return "X";
+            }
+            if (OwnedByPlayer2)
+            {
+                return "O";
+            }
+            else
+            {
+                return " ";
+            }
+        }
+
         public Representation GetRepresentation()
         {   
             if (OwnedByPlayer1)
