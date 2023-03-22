@@ -63,15 +63,13 @@ namespace TicTacToe
                 {
                     string[,] stringGrid = _grid.GetRepresentationString();
                     if(_winCheck.CheckWin(stringGrid, "X")) { isWonByX = true; }
-                    _player.Player1Turn = false;
-                    _player.Player2Turn = true;
+                    _player.SwitchToPlayer2();
                 }
                 else
                 {
                     string[,] stringGrid = _grid.GetRepresentationString();
                     if (_winCheck.CheckWin(stringGrid, "O")) { isWonByO = true; }
-                    _player.Player1Turn = true;
-                    _player.Player2Turn = false;
+                    _player.SwitchToPlayer1();
                 }
             }
         }
