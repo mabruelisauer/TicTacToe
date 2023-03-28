@@ -16,6 +16,7 @@ namespace TicTacToe
         private int _size = 3;
         private bool isWonByX;
         private bool isWonByO;
+        //Undo undo = new Undo();
 
         public Game()
         {
@@ -62,12 +63,14 @@ namespace TicTacToe
                 if (_player.Player1Turn)
                 {
                     string[,] stringGrid = _grid.GetRepresentationString();
+                    //undo.Push();
                     if(_winCheck.CheckWin(stringGrid, "X")) { isWonByX = true; }
                     _player.SwitchToPlayer2();
                 }
                 else
                 {
                     string[,] stringGrid = _grid.GetRepresentationString();
+                    //undo.Push();
                     if (_winCheck.CheckWin(stringGrid, "O")) { isWonByO = true; }
                     _player.SwitchToPlayer1();
                 }

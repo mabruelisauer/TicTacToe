@@ -8,6 +8,9 @@ namespace TicTacToe
 {
     internal class ConsoleHelper
     {
+        Undo undo = new Undo();
+        Grid grid { get; set; }
+
         public static Coordinate GetCoordinate(int gridSize)
         {
             bool isValid;
@@ -35,10 +38,13 @@ namespace TicTacToe
             if (player.Player1Turn)
             {
                 field.Player1CaptureField(field);
+                undo.Push(field);
+
             }
             if (player.Player2Turn)
             {
                 field.Player2CaptureField(field);
+                undo.Push(field);
             }
         }
 
@@ -73,6 +79,7 @@ namespace TicTacToe
             }
             else
             {
+                undo.Pop();
                 return false;
             }
         }
