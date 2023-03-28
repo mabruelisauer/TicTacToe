@@ -129,10 +129,7 @@ Sprintbewertung:
 ## Sprint 2
 <a id="goal2"></a>
 ### Sprintziele
-Ziel dieses Sprints ist es, das die Spieler das Spiel beenden und neutstarten können, sie ihre Felder
-mit X oder O besetzen können, und man dies sehen kann.
 
-Also kurz:
 - Spiel Neustarten
 - Spiel Beenden
 - Felder Besitz
