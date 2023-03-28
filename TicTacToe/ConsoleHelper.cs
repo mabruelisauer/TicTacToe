@@ -27,7 +27,7 @@ namespace TicTacToe
                 (isValid, coordinate) = Coordinate.TryCreateCoordinate(input, gridSize);
                 if (!isValid)
                 {
-                    Console.WriteLine("Please write a valid input");
+                    Console.WriteLine("This is not a valid field, please write a valid Field");
                 }
             } while (!isValid);
             return coordinate;
