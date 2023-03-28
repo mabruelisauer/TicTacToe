@@ -12,7 +12,7 @@ namespace TicTacToe
         private Grid _grid;
         private Player _player;
         private Field _field;
-        private WinCheck _winCheck;
+        private WinDrawCheck _winCheck;
         private int _size = 3;
         private bool isWonByX;
         private bool isWonByO;
@@ -22,7 +22,7 @@ namespace TicTacToe
             _helper = new ConsoleHelper();
             _grid = new Grid(_size);
             _player = new Player();
-            _winCheck = new WinCheck();
+            _winCheck = new WinDrawCheck();
         }
 
         public void Start()
@@ -40,7 +40,8 @@ namespace TicTacToe
                 if ( !isGameOver )
                 {
                     _grid.PrintGrid();
-                    Console.WriteLine("Select a field you would like to claim by entering it's coordinates. For example: 1A for the first field.");
+                    string CurrentPlayer = _player.Player1Turn ? "Player1" : "Player2";
+                    Console.WriteLine($"{CurrentPlayer}: select a field you would like to claim by entering it's coordinates. For example: 1A for the first field.");
 
                     Field selectedField;
 
@@ -58,18 +59,23 @@ namespace TicTacToe
                 }
 
 
-
+                string[,] stringGrid = _grid.GetRepresentationString();
                 if (_player.Player1Turn)
                 {
-                    string[,] stringGrid = _grid.GetRepresentationString();
+                    
                     if(_winCheck.CheckWin(stringGrid, "X")) { isWonByX = true; }
                     _player.SwitchToPlayer2();
                 }
                 else
                 {
-                    string[,] stringGrid = _grid.GetRepresentationString();
                     if (_winCheck.CheckWin(stringGrid, "O")) { isWonByO = true; }
                     _player.SwitchToPlayer1();
+                }
+
+                if (_winCheck.CheckDraw(stringGrid) && !(isWonByX || isWonByO)) 
+                {
+                    Console.WriteLine("Draw!");
+                    return;
                 }
             }
         }
