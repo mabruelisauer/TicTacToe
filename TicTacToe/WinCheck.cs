@@ -10,6 +10,14 @@ namespace TicTacToe
     {
         public bool CheckWin(string[,] grid, string playerSymbol)
         {
+            for (int column = 0; column < 3; column++)
+            {
+                if (grid[0, column] == playerSymbol && grid[1, column] == playerSymbol && grid[2, column] == playerSymbol)
+                {
+                    return true;
+                }
+            }
+
             for (int row = 0; row < 3; row++)
             {
                 if (grid[row, 0] == playerSymbol && grid[row, 1] == playerSymbol && grid[row, 2] == playerSymbol)
@@ -18,22 +26,26 @@ namespace TicTacToe
                 }
             }
 
-            for (int col = 0; col < 3; col++)
+            if (grid[0, 0] == playerSymbol )
             {
-                if (grid[0, col] == playerSymbol && grid[1, col] == playerSymbol && grid[2, col] == playerSymbol)
+                if (grid[1, 1] == playerSymbol)
                 {
-                    return true;
+                    if (grid[2, 2] == playerSymbol)
+                    {
+                        return true;
+                    }
                 }
             }
 
-            if (grid[0, 0] == playerSymbol && grid[1, 1] == playerSymbol && grid[2, 2] == playerSymbol)
+            if (grid[0, 2] == playerSymbol)
             {
-                return true;
-            }
-
-            if (grid[0, 2] == playerSymbol && grid[1, 1] == playerSymbol && grid[2, 0] == playerSymbol)
-            {
-                return true;
+                if (grid[1, 1] == playerSymbol)
+                {
+                    if (grid[2, 0] == playerSymbol)
+                    {
+                        return true;
+                    }
+                }
             }
 
             return false;
@@ -43,11 +55,11 @@ namespace TicTacToe
         //    // Check rows
         //    for (int row = 0; row < grid.GetLength(0); row++)
         //    {
-        //        for (int col = 0; col < grid.GetLength(1) - 2; col++)
+        //        for (int column = 0; column < grid.GetLength(1) - 2; column++)
         //        {
-        //            if (grid[row, col].Value != FieldValue.Empty &&
-        //                grid[row, col].Value == grid[row, col + 1].Value &&
-        //                grid[row, col].Value == grid[row, col + 2].Value)
+        //            if (grid[row, column].Value != FieldValue.Empty &&
+        //                grid[row, column].Value == grid[row, column + 1].Value &&
+        //                grid[row, column].Value == grid[row, column + 2].Value)
         //            {
         //                return true;
         //            }
@@ -55,13 +67,13 @@ namespace TicTacToe
         //    }
 
         //    // Check columns
-        //    for (int col = 0; col < grid.GetLength(1); col++)
+        //    for (int column = 0; column < grid.GetLength(1); column++)
         //    {
         //        for (int row = 0; row < grid.GetLength(0) - 2; row++)
         //        {
-        //            if (grid[row, col].Value != FieldValue.Empty &&
-        //                grid[row, col].Value == grid[row + 1, col].Value &&
-        //                grid[row, col].Value == grid[row + 2, col].Value)
+        //            if (grid[row, column].Value != FieldValue.Empty &&
+        //                grid[row, column].Value == grid[row + 1, column].Value &&
+        //                grid[row, column].Value == grid[row + 2, column].Value)
         //            {
         //                return true;
         //            }
@@ -71,11 +83,11 @@ namespace TicTacToe
         //    // Check diagonal down-right
         //    for (int row = 0; row < grid.GetLength(0) - 2; row++)
         //    {
-        //        for (int col = 0; col < grid.GetLength(1) - 2; col++)
+        //        for (int column = 0; column < grid.GetLength(1) - 2; column++)
         //        {
-        //            if (grid[row, col].Value != FieldValue.Empty &&
-        //                grid[row, col].Value == grid[row + 1, col + 1].Value &&
-        //                grid[row, col].Value == grid[row + 2, col + 2].Value)
+        //            if (grid[row, column].Value != FieldValue.Empty &&
+        //                grid[row, column].Value == grid[row + 1, column + 1].Value &&
+        //                grid[row, column].Value == grid[row + 2, column + 2].Value)
         //            {
         //                return true;
         //            }
@@ -85,11 +97,11 @@ namespace TicTacToe
         //    // Check diagonal up-right
         //    for (int row = grid.GetLength(0) - 1; row >= 2; row--)
         //    {
-        //        for (int col = 0; col < grid.GetLength(1) - 2; col++)
+        //        for (int column = 0; column < grid.GetLength(1) - 2; column++)
         //        {
-        //            if (grid[row, col].Value != FieldValue.Empty &&
-        //                grid[row, col].Value == grid[row - 1, col + 1].Value &&
-        //                grid[row, col].Value == grid[row - 2, col + 2].Value)
+        //            if (grid[row, column].Value != FieldValue.Empty &&
+        //                grid[row, column].Value == grid[row - 1, column + 1].Value &&
+        //                grid[row, column].Value == grid[row - 2, column + 2].Value)
         //            {
         //                return true;
         //            }
