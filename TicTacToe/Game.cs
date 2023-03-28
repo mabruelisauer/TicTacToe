@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TicTacToe
 {
-    internal class Game
+    public class Game
     {
         private ConsoleHelper _helper;
         private Grid _grid;

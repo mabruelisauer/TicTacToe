@@ -7,7 +7,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace TicTacToe
 {
-    internal class WinDrawCheck
+    public class WinDrawCheck
     {
         public bool CheckWin(string[,] grid, string playerSymbol)
         {

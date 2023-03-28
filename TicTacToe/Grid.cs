@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TicTacToe
 {
-    internal class Grid
+    public class Grid
     {
         private readonly int _rows;
         private readonly int _columns;

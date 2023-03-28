@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TicTacToe
 {
-    internal class Representation
+    public class Representation
     {
         public string Content { get; }
 

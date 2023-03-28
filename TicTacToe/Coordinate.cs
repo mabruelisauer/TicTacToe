@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TicTacToe
 {
-    internal class Coordinate
+    public class Coordinate
     {
         public int Y { get; }
         public int X { get; }

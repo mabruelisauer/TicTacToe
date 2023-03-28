@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TicTacToe
 {
-    internal class ConsoleHelper
+    public class ConsoleHelper
     {
         Undo undo = new Undo();
         Grid grid { get; set; }
