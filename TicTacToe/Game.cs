@@ -16,6 +16,7 @@ namespace TicTacToe
         private int _size = 3;
         private bool isWonByX;
         private bool isWonByO;
+        //Undo undo = new Undo();
 
         public Game()
         {
@@ -53,6 +54,10 @@ namespace TicTacToe
                             return;
                         }
                         selectedField = _grid.GetField(coordinate);
+                        if(!_helper.IsFieldFree(selectedField))
+                        {
+                            Console.WriteLine("This Field is already in use, please choose another one");
+                        }
                     } while (!_helper.IsFieldFree(selectedField));
 
                     _helper.Playercheck(_player, selectedField);

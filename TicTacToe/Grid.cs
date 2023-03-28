@@ -20,6 +20,11 @@ namespace TicTacToe
             CreateGrid();
         }
 
+        public Field[,] GetGrid()
+        {
+            return _table;
+        }
+
         public void CreateGrid()
         {
             _table = new Field[_rows, _columns];
