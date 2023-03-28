@@ -8,37 +8,8 @@ namespace TicTacToe
 {
     internal class ConsoleHelper
     {
-        public int ReadInt(int min, string instructionMessage = "")
-        {
-            string? input;
-            int n;
-            bool criteria;
-            while (criteria = (!Int32.TryParse(input = Console.ReadLine(), out n) || n < min))
-            {
-                if (instructionMessage == "" || criteria) { instructionMessage = $"{input} is an invalid number.\nPlease enter a valid number: "; }
-                Console.Write(instructionMessage);
-            }
-            return n;
-        }
-        public int ReadIntMax(int min, int max, string instructionMessage = "")
-        {
-            string? input;
-            int n;
-            bool criteria;
-            while (criteria = (!Int32.TryParse(input = Console.ReadLine(), out n) || n < min || n >= max))
-            {
-                if (instructionMessage == "" || criteria) { instructionMessage = $"{input} is an invalid number.\nPlease enter a valid number ({min} - {max - 1}): "; }
-                Console.Write(instructionMessage);
-            }
-            return n;
-        }
-
         public static Coordinate GetCoordinate(int gridSize)
         {
-            //// splits the user's input apart and stores it into an array
-            //char[] input = Console.ReadLine().ToCharArray();
-            //return input;
-
             bool isValid;
             Coordinate coordinate;
             do
@@ -82,6 +53,32 @@ namespace TicTacToe
                 return false;
             }
             else return true;
+        }
+
+        public void PrintWinner(bool player1, bool player2)
+        {
+            if (player1) { Console.WriteLine("Player 1 has won the game!"); }
+            else { Console.WriteLine("Player 2 has won the game!"); }
+        }
+
+        public bool IsGameEnded()
+        {
+            string input;
+            do
+            {
+                Console.WriteLine("Write 'gg' to end the game or write 'undo' to to undo the last move.");
+                input = Console.ReadLine();
+
+            } while (input != "undo" && input != "gg");
+
+            if (input == "gg")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
