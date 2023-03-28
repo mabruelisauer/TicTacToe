@@ -257,7 +257,12 @@ aktiven Spielers und Julia hat sich an den Stack bzw. die Undo Funktion gesetzt.
 
 #### WinCheck
 Der WinCheck wurde von Manuel implementiert und hat die Funktion, zu schauen ob ein Zug eines
-Spielers das Spiel beendet hat (durch gewinnen).
+Spielers das Spiel beendet hat (durch gewinnen).  
+Dies machr er, indem er jedes mal wenn ein Zug gespielt wird, abgerufen wird, dann werden
+alle möglichen Kombinationen gecheckt die einen Sieg ergeben könnten (Alle Reihen,
+Spalten oder Diagonalen) falls dies der Fall ist, wird der Sieger erkündigt und je nach dem
+hat er die Option 'gg' zu sagen und somit das Spiel zu gewinnen oder die möglichkeit für eine
+undo funktion und nochmal besser zu spielen.
 
 
 
