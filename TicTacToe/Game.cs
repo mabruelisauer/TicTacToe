@@ -38,6 +38,10 @@ namespace TicTacToe
                         return;
                     }
                     selectedField = _grid.GetField(coordinate);
+                    if (!_helper.IsFieldFree(selectedField))
+                    {
+                        Console.WriteLine("This field is already in use, please write another one");
+                    }
                 } while (!_helper.IsFieldFree(selectedField));
                 
                 _helper.Playercheck(_player, selectedField);

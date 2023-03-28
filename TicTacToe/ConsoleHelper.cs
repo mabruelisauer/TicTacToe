@@ -54,6 +54,10 @@ namespace TicTacToe
                     game.Start();
                 }
                 (isValid, coordinate) = Coordinate.TryCreateCoordinate(input, gridSize);
+                if (!isValid)
+                {
+                    Console.WriteLine("Please write a valid input");
+                }
             } while (!isValid);
             return coordinate;
         }
