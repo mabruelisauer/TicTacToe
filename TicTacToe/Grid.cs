@@ -41,7 +41,7 @@ namespace TicTacToe
 
         public void Print()
         {
-            Console.Clear();
+            //Console.Clear();
             Console.WriteLine();
             char[] alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();
             int i = 0;

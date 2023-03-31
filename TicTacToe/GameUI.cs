@@ -19,7 +19,6 @@ namespace TicTacToe
 
                 if (!game.isGameOver)
                 {
-                    game.PrintGrid();
                     string CurrentPlayer = game.GetCurrentPlayer();
                     Console.WriteLine($"{CurrentPlayer}: select a field you would like to claim by entering it's coordinates. For example: 1A for the first field.");
 
@@ -68,10 +67,12 @@ namespace TicTacToe
                 string input = Console.ReadLine();
                 if (input == "ende")
                 {
+                    Console.WriteLine("The game was ended!");
                     return null;
                 }
                 if (input == "neu")
                 {
+                    Console.WriteLine("The game was restarted!");
                     Program.Game();
                     return null;
                 }

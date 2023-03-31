@@ -1,3 +1,5 @@
+using Microsoft.VisualStudio.TestPlatform.TestHost;
+
 namespace TicTacToe
 {
     [TestClass]
@@ -38,98 +40,110 @@ namespace TicTacToe
         }
 
         [TestMethod]
-        public void TestInput()
+        public void TestWinCondition()
         {
-            // Create a new instance of the Tic Tac Toe game
-            var gameUI = new GameUI();
-
-
-            // Create a string array representing the user input
-            string[] input = { "1c", "2b", "3a" };
-
-            // Use a StringWriter to capture the console output
+            // Arrange
+            GameUI gameUI = new GameUI();
+            string expectedOutput = "Player 1 has won the game!";
+            StringReader stringReader = new StringReader("1a\n2a\n1b\n2b\n1c\ngg\n");
             StringWriter stringWriter = new StringWriter();
+            
+            Console.SetIn(stringReader);
             Console.SetOut(stringWriter);
 
-            // Use a StringReader to simulate user input
-            StringReader stringReader = new StringReader(string.Join(Environment.NewLine, input));
-            Console.SetIn(stringReader);
-
-            // Start the game and run it to completion
+            // Act
             gameUI.StartGame();
 
-            // Verify the console output
-            Console.Clear();
-            string expectedOutput = string.Join("", new[] {
+            string output = stringWriter.ToString();
 
-            "       A   B   C  \n",
-            "     -------------\n",
-            "  01 |   |   |   |\n",
-            "     -------------\n",
-            "  02 |   |   |   |\n",
-            "     -------------\n",
-            "  03 |   |   |   |\n",
-            "     -------------\n",
-            "Player 1: select a field you would like to claim by entering it's coordinates. For example: 1A for the first field.",
-            "\n"
-        });
+            // Assert
+            Assert.IsTrue(output.Contains(expectedOutput));
+        }
 
-            Console.Clear();
+        [TestMethod]
+        public void TestDraw()
+        {
+            // Arrange
+            GameUI gameUI = new GameUI();
+            string expectedOutput = "Draw!";
+            StringReader stringReader = new StringReader("1a\n2a\n1b\n2b\n2c\n1c\na3\nb3\nc3");
+            StringWriter stringWriter = new StringWriter();
 
-            expectedOutput += string.Join("", new[] {
+            Console.SetIn(stringReader);
+            Console.SetOut(stringWriter);
 
-            "       A   B   C  \n",
-            "     -------------\n",
-            "  01 |   |   | X |\n",
-            "     -------------\n",
-            "  02 |   |   |   |\n",
-            "     -------------\n",
-            "  03 |   |   |   |\n",
-            "     -------------\n",
-            "Player 2: select a field you would like to claim by entering it's coordinates. For example: 1A for the first field.",
-            "\n"
-        });
+            // Act
+            gameUI.StartGame();
 
-            Console.Clear();
+            string output = stringWriter.ToString();
 
-            expectedOutput += string.Join("", new[] {
+            // Assert
+            Assert.IsTrue(output.Contains(expectedOutput));
+        }
 
-            "       A   B   C  \n",
-            "     -------------\n",
-            "  01 |   |   | X |\n",
-            "     -------------\n",
-            "  02 |   | O |   |\n",
-            "     -------------\n",
-            "  03 |   |   |   |\n",
-            "     -------------\n",
-            "Player 1: select a field you would like to claim by entering it's coordinates. For example: 1A for the first field.",
-            "\n"
-        });
+        [TestMethod]
+        public void TestDoubleInput()
+        {
+            // Arrange
+            GameUI gameUI = new GameUI();
+            string expectedOutput = "This Field is already in use, please choose another one";
+            StringReader stringReader = new StringReader("1a\n1a\nende\n");
+            StringWriter stringWriter = new StringWriter();
 
-            Console.Clear();
+            Console.SetIn(stringReader);
+            Console.SetOut(stringWriter);
 
-            expectedOutput += string.Join("", new[] {
+            // Act
+            gameUI.StartGame();
 
-            "       A   B   C  \n",
-            "     -------------\n",
-            "  01 |   |   | X |\n",
-            "     -------------\n",
-            "  02 |   | O |   |\n",
-            "     -------------\n",
-            "  03 | X |   |   |\n",
-            "     -------------\n",
-            "Player 2: select a field you would like to claim by entering it's coordinates.",
-            "\n"
-        });
+            string output = stringWriter.ToString();
+
+            // Assert
+            Assert.IsTrue(output.Contains(expectedOutput));
+        }
 
 
 
+        [TestMethod]
+        public void TestRestartInput()
+        {
+            // Arrange
+            GameUI gameUI = new GameUI();
+            string expectedOutput = "The game was restarted!";
+            StringReader stringReader = new StringReader("1a\nneu\n1a\nende\n");
+            StringWriter stringWriter = new StringWriter();
 
-            Assert.AreEqual(expectedOutput, stringWriter.ToString());
+            Console.SetIn(stringReader);
+            Console.SetOut(stringWriter);
 
-            stringReader.Dispose();
-            stringWriter.Dispose();
+            // Act
+            gameUI.StartGame();
+
+            string output = stringWriter.ToString();
+
+            // Assert
+            Assert.IsTrue(output.Contains(expectedOutput));
+        }
+
+        [TestMethod]
+        public void TestEndingInput()
+        {
+            // Arrange
+            GameUI gameUI = new GameUI();
+            string expectedOutput = "The game was ended!";
+            StringReader stringReader = new StringReader("1a\nende\n");
+            StringWriter stringWriter = new StringWriter();
+
+            Console.SetIn(stringReader);
+            Console.SetOut(stringWriter);
+
+            // Act
+            gameUI.StartGame();
+
+            string output = stringWriter.ToString();
+
+            // Assert
+            Assert.IsTrue(output.Contains(expectedOutput));
         }
     }
-
 }
