@@ -1,4 +1,4 @@
-namespace TicTacToeTests
+namespace TicTacToe
 {
     [TestClass]
     public class UnitTest1
@@ -6,6 +6,7 @@ namespace TicTacToeTests
         [TestMethod]
         public void TestMethod1()
         {
+
         }
     }
 }

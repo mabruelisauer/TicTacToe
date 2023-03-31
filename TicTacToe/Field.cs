@@ -46,7 +46,7 @@ namespace TicTacToe
             }
         }
 
-        public Representation GetRepresentation()
+        public string GetRepresentation()
         {   
             if (OwnedByPlayer1)
             {

@@ -13,10 +13,11 @@ namespace TicTacToe
         private Player _player;
         private Field _field;
         private WinDrawCheck _winCheck;
-        private int _size = 3;
+        public int _size = 3;
         private bool isWonByX;
         private bool isWonByO;
-        //Undo undo = new Undo();
+
+        public bool isGameOver;
 
         public Game()
         {
@@ -26,63 +27,64 @@ namespace TicTacToe
             _winCheck = new WinDrawCheck();
         }
 
-        public void Start()
+        public void PrintGrid()
         {
-            bool isGameOver = false;
-            _player.Player1Turn = true;
-            while (!isGameOver) {
-                _grid.PrintGrid();
+            _grid.Print();
+        }
 
-                if ( isWonByX || isWonByO ) 
-                {
-                    _helper.PrintWinner(isWonByX, isWonByO);
-                    isGameOver = _helper.IsGameEnded();
-                }
-                if ( !isGameOver )
-                {
-                    _grid.PrintGrid();
-                    string CurrentPlayer = _player.Player1Turn ? "Player1" : "Player2";
-                    Console.WriteLine($"{CurrentPlayer}: select a field you would like to claim by entering it's coordinates. For example: 1A for the first field.");
-
-                    Field selectedField;
-
-                    do
-                    {
-                        var coordinate = ConsoleHelper.GetCoordinate(_size);
-                        if (coordinate == null)
-                        {
-                            return;
-                        }
-                        selectedField = _grid.GetField(coordinate);
-                        if(!_helper.IsFieldFree(selectedField))
-                        {
-                            Console.WriteLine("This Field is already in use, please choose another one");
-                        }
-                    } while (!_helper.IsFieldFree(selectedField));
-
-                    _helper.Playercheck(_player, selectedField);
-                }
-
-
-                string[,] stringGrid = _grid.GetRepresentationString();
-                if (_player.Player1Turn)
-                {
-                    
-                    if(_winCheck.CheckWin(stringGrid, "X")) { isWonByX = true; }
-                    _player.SwitchToPlayer2();
-                }
-                else
-                {
-                    if (_winCheck.CheckWin(stringGrid, "O")) { isWonByO = true; }
-                    _player.SwitchToPlayer1();
-                }
-
-                if (_winCheck.CheckDraw(stringGrid) && !(isWonByX || isWonByO)) 
-                {
-                    Console.WriteLine("Draw!");
-                    return;
-                }
+        public void PrintWinnerIfWon()
+        {
+            if (isWonByX || isWonByO)
+            {
+                _helper.PrintWinner(isWonByX, isWonByO);
+                isGameOver = _helper.IsGameEnded();
             }
+        }
+
+        public string GetCurrentPlayer()
+        {
+            return _player.CurrentPlayer();
+        }
+
+        public Field CoordinateToField(Coordinate coordinate)
+        {
+            Field selectedField = _grid.GetField(coordinate);
+            return selectedField;
+        }
+
+        public bool IsCoordinateAvailable(Field field)
+        {
+            return _helper.IsFieldFree(field);
+        }
+
+        public void CaptureField(Field selectedField)
+        {
+            _helper.Playercheck(_player, selectedField);
+        }
+
+        public void WinCheck()
+        {
+            string[,] stringGrid = _grid.GetRepresentationString();
+            if (_player.isPlayer1Turn)
+            {
+
+                if (_winCheck.CheckWin(stringGrid, "X")) { isWonByX = true; }
+            }
+            else
+            {
+                if (_winCheck.CheckWin(stringGrid, "O")) { isWonByO = true; }
+            }
+        }
+
+        public void SwitchPlayer()
+        {
+            _player.SwitchPlayer();
+        }
+
+        public bool IsDraw()
+        {
+            string[,] stringGrid = _grid.GetRepresentationString();
+            return _winCheck.CheckDraw(stringGrid) && !(isWonByX || isWonByO);
         }
     }
 }
