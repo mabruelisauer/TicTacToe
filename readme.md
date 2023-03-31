@@ -281,9 +281,9 @@ hinzugefüt, wohingegen das zweite bei der GameUI eingefügt wurde.
 <a id="rev3"></a>
 ### Sprintreview
 Der letzte Sprint war sehr holprig für uns und wir hatten einige Probleme die diese Woche entstanden sind. Das hat dazu geführt, dass
-wir einen grossen Teil des Codes in der Game Klasse neu schreiben mussten, was uns einige Zeit kostete. Daher sind wir auch icht
+wir einen grossen Teil des Codes in der Game Klasse neu schreiben mussten, was uns einige Zeit kostete. Daher sind wir auch nicht
 so schell gewesen wie wir eigentlich sein wollten. Zum Glück kam uns daher Herr Kehls Anweisung, den Sprint auf Freitag zu verlängern, sehr
-gut, da uns das die Zeit gegeben hat, um alles zu vervollständigen. Leider hat das ganze nicht gut mit der Azure Planung funktioniert,
+gut, da uns das die Zeit gegeben hat, um die verlorene Zeit auf zu hohlen. Leider hat das ganze nicht gut mit der Azure Planung funktioniert,
 da es dachte der 3. Sprint hätte am Dienstag aufgehört.
 
 // Bewertung des End-Produkts
