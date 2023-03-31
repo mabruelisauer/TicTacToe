@@ -1,7 +1,7 @@
 ﻿using System;
 using TicTacToe;
 
-internal class Undo
+public class Undo
 {
     internal Stack<Field> undo;
     

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TicTacToe
 {
-    internal class ConsoleHelper
+    public class ConsoleHelper
     {
         Undo undo = new Undo();
         Grid grid { get; set; }
@@ -39,13 +39,12 @@ namespace TicTacToe
         
         public void Playercheck(Player player, Field field)
         {
-            if (player.Player1Turn)
+            if (player.isPlayer1Turn)
             {
                 field.Player1CaptureField(field);
                 undo.Push(field);
-
             }
-            if (player.Player2Turn)
+            else
             {
                 field.Player2CaptureField(field);
                 undo.Push(field);

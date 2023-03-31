@@ -8,7 +8,7 @@ using static TicTacToe.Representation;
 
 namespace TicTacToe
 {
-    internal class Field
+    public class Field
     {
         private Field? _right;
         private Field? _left;
@@ -46,7 +46,7 @@ namespace TicTacToe
             }
         }
 
-        public Representation GetRepresentation()
+        public string GetRepresentation()
         {   
             if (OwnedByPlayer1)
             {

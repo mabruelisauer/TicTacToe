@@ -8,9 +8,9 @@
         }
         public static void Game()
         {
-                Console.Title = "TicTacToe";
-                var game = new Game();
-                game.Start();
+            Console.Title = "TicTacToe";
+            var gameUI = new GameUI();
+            gameUI.StartGame();
         }
     }
 }
