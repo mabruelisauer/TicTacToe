@@ -280,7 +280,9 @@ hinzugefüt, wohingegen das zweite bei der GameUI eingefügt wurde.
 Undo ist die einzige Funktion, welche nicht komplett implementiert wurde. Um die Undo-Funktion umzusetzten, war es notwendig, 
 eine Deepcopy des Arrays zu machen. Dies hat nicht funktioniert, da es vier verschiede Variabeln gab, welche für den Stack benutzt
 hätten können. Leider funktionerte keiner dieser Variabeln. Nach einigen Versuchen, konnte man die bereits besetzten Felder im Stack speichern,
-dies war aber schwierig in der Konsole anzuzeigen, darum haben wir diese Version von Undo verworfen.
+dies war aber schwierig in der Konsole anzuzeigen, darum haben wir diese Version von Undo verworfen. Nach diesem Versuch, kamen die Versuche,
+den ganzen Array im Stack zu speichern. Wir haben mit Deepcopy angefangen und versucht, das ganze Spielfeld im Stack zu speichern,
+welches auch die Grundidee war. Dies stellte sich um einiges schwieriger raus und Julia sass mehrere Stunden vergebens daran.
 
 <a id="rev3"></a>
 ### Sprintreview
