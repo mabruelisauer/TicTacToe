@@ -311,8 +311,10 @@ Sprintbewertung:
 - Dean: 5/10, durch späte Abschliessung des Projektes konnte die Dokumentation erst sehr spät geschrieben werden.
 
 <a id="product"></a>
-### Produktabschluss
+## Produktabschluss
 Schlussendlich konnten die meisten Anforderungen des Produktes erfüllt werden und unserer Meinung nach wurde
 das zwar nicht perfekt gemacht, aber dafür, dass wir nur 3 Wochen Zeit hatten, ist es uns gut gelungen und
 das Meiste konnte implementiert werden mit bestmöglicher Einhaltung der Clean Code Prinzipien.  
 Leider geling die Undo Funktion nicht, aber leider hat uns schlichtweg das Wissen und die Zeit gefehlt.
+
+---
