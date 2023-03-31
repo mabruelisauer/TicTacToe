@@ -258,14 +258,20 @@ aktiven Spielers und Julia hat sich an den Stack bzw. die Undo Funktion gesetzt.
 #### WinCheck
 Der WinCheck wurde von Manuel implementiert und hat die Funktion, zu schauen ob ein Zug eines
 Spielers das Spiel beendet hat (durch gewinnen).  
-Dies machr er, indem er jedes mal wenn ein Zug gespielt wird, abgerufen wird, dann werden
+Dies macht er, indem er jedes mal wenn ein Zug gespielt wird, abgerufen wird, dann werden
 alle möglichen Kombinationen gecheckt die einen Sieg ergeben könnten (Alle Reihen,
 Spalten oder Diagonalen) falls dies der Fall ist, wird der Sieger erkündigt und je nach dem
 hat er die Option 'gg' zu sagen und somit das Spiel zu gewinnen oder die möglichkeit für eine
 undo funktion und nochmal besser zu spielen.
 
+#### Fehlermeldung und aktiver Spieler
+Die Fehlermeldung sowie die Anzeige des aktiven Spielers waren sehr leicht zu implementieren.  
+Die Anzeige wurde da implementiert, wo wir den Original Text hatten, jetzt gibt es jedoch zusätzlich
+ein kleines If, um zu sehen, welcher Spieler aktiv ist.  
+Die Fehlermeldungen wenn man eine niht mögliche Koordinate angibt ist
 
 
+#### Klassendiagramm
 
 <a id="rev3"></a>
 ### Sprintreview
