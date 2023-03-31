@@ -24,6 +24,7 @@
     - [Sprint](#dok3)
     - [Review](#rev3)
     - [Retrospektive](#retro3)
+- [Testkonzept](#testing)
 - [Produktabschluss](#product)
 
 <a id="informationen"></a>
@@ -93,7 +94,7 @@ Planung für die Dokumentation zusammen zu tragen, sowie die Struktur der Dokume
 Das Grid wird offensichtlich in der Klasse Grid erstellt wobei man 2 for-Schleifen verschachtelt und diese
 die Länge von jeweils rows und columns haben.
 
-```
+```c#
             for (int i = 0; i < _table.GetLength(0); i++)
             {
                 for (int j = 0; j < _table.GetLength(1); j++)
@@ -141,7 +142,7 @@ Dieser Sprint wurde hauptsächlich in Pair-Programming gemacht, ausserdem war De
 
 Zuerst wurde der Spieler switch zwischen Zügen implementiert. Dies wurde gemacht in dem man in der Game Klasse
 checkt ob am Ende eines Zuges, der 2. Spieler an der Reihe war oder nicht
-```
+```c#
 if (_player.Player1Turn)
                 {
                     _player.Player1Turn = false;
@@ -156,7 +157,7 @@ if (_player.Player1Turn)
 
 Als nächstes wurde implementiert, dass beiden Spielern verschiedene Felder gehören können.
 Im Code wird dies in der Field Klasse geregelt.
-```
+```c#
 public void Player1CaptureField(Field field)
 {
         field.OwnedByPlayer1 = true;
@@ -176,7 +177,7 @@ Dadurch erstanden jedoch auch einige Fehler, da auch falsche Koordinaten wie z.B
 Mit diesen zwei Methoden wird deklariert ob und wem ein Feld gehört.
 Danach wird mit der Methode getRepresentation geschaut, wem dieses Feld gehört und je nach dem ein X, O oder 
 einen Abstand platziert.
-```
+```c#
 public Representation GetRepresentation()
         {   
             if (OwnedByPlayer1)
@@ -196,7 +197,7 @@ public Representation GetRepresentation()
 
 Dann haben wir die Eingaben "neu" für einen Neustart und "ende" für die Beendung implementiert. Dies
 haben wir über eine do while Schleife in der ConsoleHelper Klasse gemacht.
-```
+```c#
             do
             {
                 string input = Console.ReadLine();
@@ -309,6 +310,127 @@ Sprintbewertung:
 - Manuel: 4/10, das Testing brauchte viel zu viel Zeit
 - Julia: 2/10, Deepy Copy und der Stack waren extremst schwierig zu versuchen zu implementieren
 - Dean: 5/10, durch späte Abschliessung des Projektes konnte die Dokumentation erst sehr spät geschrieben werden.
+
+<a id="testing"></a>
+## Testkonzept
+
+
+
+### Einleitung
+
+Das zu testende System ist ein TicTacToe-Spiel auf der Konsole in c#. Das Ziel des ganzen Testprozesses ist eine überwiegende Abdeckung der Funktionalitäten unserer Applikation.
+
+
+
+### Testarten
+
+Natürlich stehen die Unit-Tests also das Testen der einzelnen Komponente im Vordergrund. Diese Einzeltests beziehen sich vor allem auf einzelne Methoden oder zum teil auch Klassen (die GameUI Klasse). Allerdings beziehen sich viele Tests auch auf die Grundfunktionalität des TicTacToe-Spiels, es wird also durchaus auch das Gesamtsystems getestet.
+
+
+
+### Testabdeckung
+
+Unserer Meinung nach haben wir eigentlich alles was zur Funktionalität des Spiels beiträgt getestet. Alle Grenzfälle konnten wir allerdings aus zeitlichen gründen nicht mal teilweise Abdecken.
+
+
+
+### Teststrategie
+
+Wir haben vor allem Eingaben getestet. Auch haben wir zwar die Logik des Spiels und die Überprüfung ob jemand gewonnen hat oder das Spiel als Gleichstand ausgeht getestet. Da wir aber für diese Tests ebenfalls Eingaben brauchten waren diese eigentlich immer präsent.
+
+
+
+### Testfälle
+
+Im Folgenden werden die einzelnen Testfälle beschrieben und erklärt.
+
+
+
+In den meisten Testfällen haben wir einen StringReader und manchmal einen StringWriter benutzt.
+
+
+
+Der StringReader ermöglicht es eine Manuelle Eingabe für ein `Console.Readline()` zu tätigen indem man dem StringReader beim instanziieren einen string als Input mitgibt. Im Folgenden Beispiel sieht man wie ein StringReader erstellt wird der string Input "b2" mitgegeben wird. Dies bedeutet es wird beim nächstmöglichen `Console.Readline()` automatisch "b2" eingefügt. Ab dem `Console . SetOut(stringWriter) ;` wird Input eingefügt.
+
+```c#
+string input = "b2" ;
+StringReader stringReader = new StringReader(input);
+Console.Setln(stringReader);
+```
+
+
+
+Der StringWriter hingegen dient zum auslesen der Ausgabe, also den `Console.WriteLine` ausdrücken. Wir haben ihn in unseren Tests oft verwendet um das Spiel auf Meldungen wie "ungültige Eingabe" oder ähnlichem zu testen. Im Beispiel wird der StringWriter erstellt und dann ab dem `Console.SetOut(stringWriter);` wird Output gespeichert. Durch `string output = stringWriter.ToString()` kann dieser in eine Variable gespeichert werden und z.B. zum Assert bei Unit-Tests verwendet werden.
+
+```c#
+StringWriter stringWriter = new StringWriter;
+Console.SetOut(stringWriter);
+string output = stringWriter.ToString();
+```
+
+
+
+
+
+#### TestValidInput
+
+Dies ist der einfachste Test und soll einfach testen ob die Eingabe des Benutzers in die korrekte Koordinate  umgewandelt wird.
+
+Es wird ein Input "b2" genommen der danach mittels StringReader als Zug des ersten Spielers verwendet wird.
+
+Ebenfalls wird eine Koordinate (1, 1) erstellt. Diese ist das erwartete Resultat und wird nachher mit dem eigentlichen Resultat verglichen. 
+
+B2 ist ja das Feld (2, 2), da die es aber auch eine (0, 0) Koordinate gibt ist es immer -1 und somit (1, 1).
+
+
+
+#### TestInvalidInput
+
+Hier wird getestet ob das Spiel eine Koordinate die gar nicht existiert ebenfalls nimmt und damit arbeitet.
+
+Es wird wieder mit einem StringReader eine Eingabe gemacht aber diesmal mit dem Feld "d1", welches nicht existiert.
+
+Dann wird die Methode zum überprüfen von Eingaben `TryCreateCoordinate` aufgerufen, welche den Input dann null zurückgibt.
+
+Dies ist gewollt und somit wird auch im assert getestet ob es null ist.
+
+
+
+#### TestWinCondition
+
+Hier werden dem StringReader viele Eingaben gegeben.
+
+So viele, dass ein Spieler gewinnen müsste.
+
+Dann wird mittels des StringWriters ausgelesen ob die entsprechende Siegesnachricht ausgegeben wird und dann diese mit der eigentlichen Siegesnachricht verglichen.
+
+
+
+#### TestDraw
+
+Hier werden so viele eingaben in den StringReader gemacht, dass es gleichstand sein müsste.
+
+Danach wird wie bei der WinCondition die erwartete Nachricht mir der eigentlichen verglichen.
+
+
+
+#### TestDoubleInput
+
+Hier werden wieder mit dem StringReader zwei eingaben gemacht, die aber diesmal das gleiche Feld sind.
+
+Dann wird wieder ähnlich wie bei WinCondition und TestDraw die erwartete mit der eigentlichen Nachricht die auf doppelte Eingabe hinweist verglichen.
+
+
+
+#### TestRestartInput
+
+In dieser Testmethode wird nochmals mit Hilfe des StringReader eingaben gemacht. Diesmal kommt aber anstatt einem Feld die Eingabe "neu" welche ein neues Spiel starten soll. Dann wird ebenfalls wieder die erwartete mit der eigentlichen Meldung verglichen und so beurteilt ob der Test erfolgreich ist oder nicht. Ebenfalls wird nach der Eingabe "neu" nochmals die gleiche Eingabe wie zuvor eingegeben einfach zum zeigen, dass es funktioniert.
+
+
+
+#### TestEndingInput
+
+Hier wird die Eingabe "ende" gemacht die das Spiel beenden soll. Wie es bereits oft vorgekommen ist wird dann einfach wieder die erwartete Meldung mit der eigentlichen Meldung verglichen.
 
 
 <a id="product"></a>
