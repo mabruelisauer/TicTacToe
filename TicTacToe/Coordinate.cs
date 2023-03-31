@@ -18,6 +18,11 @@ namespace TicTacToe
             X = x;
         }
 
+        public override string ToString()
+        {
+            return $"{X},{Y}";
+        }
+
         public Coordinate MinusXMinusY() => new Coordinate(X - 1, Y - 1);
 
         private static Regex _regex = new Regex("^(([a-z][0-9][0-9]?)|([0-9][0-9]?[a-z]))$");
