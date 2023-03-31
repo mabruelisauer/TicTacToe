@@ -277,12 +277,16 @@ hinzugefüt, wohingegen das zweite bei der GameUI eingefügt wurde.
 #### Klassendiagramm
 
 #### Undo
+Undo ist die einzige Funktion, welche nicht komplett implementiert wurde. Um die Undo-Funktion umzusetzten, war es notwendig, 
+eine Deepcopy des Arrays zu machen. Dies hat nicht funktioniert, da es vier verschiede Variabeln gab, welche für den Stack benutzt
+hätten können. Leider funktionerte keiner dieser Variabeln. Nach einigen Versuchen, konnte man die bereits besetzten Felder im Stack speichern,
+dies war aber schwierig in der Konsole anzuzeigen, darum haben wir diese Version von Undo verworfen.
 
 <a id="rev3"></a>
 ### Sprintreview
 Der letzte Sprint war sehr holprig für uns und wir hatten einige Probleme die diese Woche entstanden sind. Das hat dazu geführt, dass
 wir einen grossen Teil des Codes in der Game Klasse neu schreiben mussten, was uns einige Zeit kostete. Daher sind wir auch nicht
-so schell gewesen wie wir eigentlich sein wollten. Zum Glück kam uns daher Herr Kehls Anweisung, den Sprint auf Freitag zu verlängern, sehr
+so schell gewesen wie wir eigentlich sein wollten. Zum Glück kam uns daher Herr Kehl's Anweisung, den Sprint auf Freitag zu verlängern, sehr
 gut, da uns das die Zeit gegeben hat, um die verlorene Zeit auf zu hohlen. Leider hat das ganze nicht gut mit der Azure Planung funktioniert,
 da es dachte der 3. Sprint hätte am Dienstag aufgehört.
 
