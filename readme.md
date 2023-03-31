@@ -263,18 +263,30 @@ alle möglichen Kombinationen gecheckt die einen Sieg ergeben könnten (Alle Rei
 Spalten oder Diagonalen) falls dies der Fall ist, wird der Sieger erkündigt und je nach dem
 hat er die Option 'gg' zu sagen und somit das Spiel zu gewinnen oder die möglichkeit für eine
 undo funktion und nochmal besser zu spielen.
+Zusätzlich haben wir eine CheckDraw Funktion, die das Spiel automatisch beendet, wenn alle
+Felder ausgefüllt sind und somit ein Unentschieden entsteht.
 
 #### Fehlermeldung und aktiver Spieler
 Die Fehlermeldung sowie die Anzeige des aktiven Spielers waren sehr leicht zu implementieren.  
 Die Anzeige wurde da implementiert, wo wir den Original Text hatten, jetzt gibt es jedoch zusätzlich
 ein kleines If, um zu sehen, welcher Spieler aktiv ist.  
-Die Fehlermeldungen wenn man eine niht mögliche Koordinate angibt ist
-
+Die Fehlermeldungen wenn man eine nicht mögliche Koordinate angibt, oder man eine Koordinate 
+einschreibt, die bereits besetzt ist. Beim ersten wurde die Error Message bei GetCoordinate
+hinzugefüt, wohingegen das zweite bei der GameUI eingefügt wurde.
 
 #### Klassendiagramm
 
+#### Undo
+
 <a id="rev3"></a>
 ### Sprintreview
+Der letzte Sprint war sehr holprig für uns und wir hatten einige Probleme die diese Woche entstanden sind. Das hat dazu geführt, dass
+wir einen grossen Teil des Codes in der Game Klasse neu schreiben mussten, was uns einige Zeit kostete. Daher sind wir auch icht
+so schell gewesen wie wir eigentlich sein wollten. Zum Glück kam uns daher Herr Kehls Anweisung, den Sprint auf Freitag zu verlängern, sehr
+gut, da uns das die Zeit gegeben hat, um alles zu vervollständigen. Leider hat das ganze nicht gut mit der Azure Planung funktioniert,
+da es dachte der 3. Sprint hätte am Dienstag aufgehört.
 
+// Bewertung des End-Produkts
 <a id="retro3"></a>
 ### Retroperspektive
+Wie bereits erwähnt hatten wir einige Stolpersteine diesen Sprint, aber ansonsten ging 
