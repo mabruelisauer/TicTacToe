@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TicTacToe
 {
-    internal class GameUI
+    public class GameUI
     {
         private Game game = new Game();
         public void StartGame()
@@ -27,7 +27,7 @@ namespace TicTacToe
 
                     do
                     {
-                        var coordinate = ConsoleHelper.GetCoordinate(game._size);
+                        var coordinate = GetCoordinate(game._size);
                         if (coordinate == null)
                         {
                             return;
@@ -57,6 +57,31 @@ namespace TicTacToe
                 }
             }
 
+        }
+
+        public Coordinate GetCoordinate(int gridSize)
+        {
+            bool isValid;
+            Coordinate coordinate;
+            do
+            {
+                string input = Console.ReadLine();
+                if (input == "ende")
+                {
+                    return null;
+                }
+                if (input == "neu")
+                {
+                    Program.Game();
+                    return null;
+                }
+                (isValid, coordinate) = Coordinate.TryCreateCoordinate(input, gridSize);
+                if (!isValid)
+                {
+                    Console.WriteLine("This is not a valid field, please write a valid Field");
+                }
+            } while (!isValid);
+            return coordinate;
         }
     }
 }

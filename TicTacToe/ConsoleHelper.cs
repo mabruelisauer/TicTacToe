@@ -11,30 +11,7 @@ namespace TicTacToe
         Undo undo = new Undo();
         Grid grid { get; set; }
 
-        public static Coordinate GetCoordinate(int gridSize)
-        {
-            bool isValid;
-            Coordinate coordinate;
-            do
-            {
-                string input = Console.ReadLine();
-                if (input == "ende")
-                {
-                    return null;
-                }
-                if (input == "neu")
-                {
-                    Program.Game();
-                    return null;
-                }
-                (isValid, coordinate) = Coordinate.TryCreateCoordinate(input, gridSize);
-                if (!isValid)
-                {
-                    Console.WriteLine("This is not a valid field, please write a valid Field");
-                }
-            } while (!isValid);
-            return coordinate;
-        }
+        
 
         
         public void Playercheck(Player player, Field field)
