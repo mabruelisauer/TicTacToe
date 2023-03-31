@@ -310,6 +310,7 @@ Sprintbewertung:
 - Julia: 2/10, Deepy Copy und der Stack waren extremst schwierig zu versuchen zu implementieren
 - Dean: 5/10, durch späte Abschliessung des Projektes konnte die Dokumentation erst sehr spät geschrieben werden.
 
+
 <a id="product"></a>
 ## Produktabschluss
 Schlussendlich konnten die meisten Anforderungen des Produktes erfüllt werden und unserer Meinung nach wurde
